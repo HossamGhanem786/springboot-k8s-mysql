@@ -1,8 +1,8 @@
 echo "Starting to deploy springboot-k8s-mysql"
-gcloud container clusters get-credentials springboot-k8s-mysql --zone us-central1-c --project jenkins-276120
+gcloud container clusters get-credentials ${cluster-name} --zone us-central1-c --project ${project-id}
 echo "Finish to get-credentials"
 
-gcloud builds submit --tag gcr.io/jenkins-276120/springboot-k8s-mysql
+gcloud builds submit --tag gcr.io/${project-id}/springboot-k8s-mysql
 echo "Finish build and push to container registery"
 
 cd src/main/resources/
